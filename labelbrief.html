@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Etiqueta Pizza Fresh - 6.8x8cm</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .etiqueta {
+            width: 68mm;
+            height: 80mm;
+            background: white;
+            font-family: 'Arial Narrow', Arial, Helvetica, sans-serif;
+            font-size: 6pt;
+            padding: 2mm;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 0.2mm solid #ccc;
+        }
+        .logo {
+            background: #f0f0f0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 10pt;
+            padding: 2mm 0;
+            margin-bottom: 1mm;
+        }
+        .producto {
+            font-size: 9pt;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 0.3mm solid black;
+            margin-bottom: 1mm;
+        }
+        .sub {
+            font-size: 5pt;
+            text-align: center;
+            margin-bottom: 1mm;
+        }
+        .fechas, .lote {
+            font-size: 6pt;
+            margin-bottom: 1mm;
+            display: flex;
+            justify-content: space-between;
+        }
+        .ingredientes {
+            font-size: 5pt;
+            margin-bottom: 1mm;
+            border-top: 0.2mm dotted gray;
+            border-bottom: 0.2mm dotted gray;
+            padding: 1mm 0;
+        }
+        .nutricional {
+            font-size: 5pt;
+            margin-bottom: 1mm;
+        }
+        .conservacion {
+            font-size: 5pt;
+            margin-bottom: 1mm;
+        }
+        .footer {
+            font-size: 4pt;
+            text-align: center;
+            border-top: 0.2mm solid gray;
+            padding-top: 1mm;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="etiqueta" id="etiqueta">
+        <div class="logo">
+            🍕 QUALITY PIZZA FRESH
+        </div>
+
+        <div class="producto">
+            PIZZA MEDIANA 250g (UNIDAD)
+        </div>
+        <div class="sub">
+            Base de pizza precocinada<br>
+            Base de pizza pré-cozida<br>
+            Base de pizza précuite
+        </div>
+
+        <div class="fechas">
+            <span>🇪🇸 Elab: 19-03-2026</span>
+            <span>🇵🇹 Fabr: 19-03-2026</span>
+            <span>🇫🇷 Fabr: 19-03-2026</span>
+        </div>
+        <div class="fechas">
+            <span>🇪🇸 Cons. pref: 07-04-2026</span>
+            <span>🇵🇹 Melhor antes: 07-04-2026</span>
+            <span>🇫🇷 A consommer avant: 07-04-2026</span>
+        </div>
+
+        <div class="lote">
+            <span>🇪🇸 Lote: L24031901</span>
+            <span>🇵🇹 Lote: L24031901</span>
+            <span>🇫🇷 Lot: L24031901</span>
+        </div>
+
+        <div class="ingredientes">
+            <span class="highlight">INGREDIENTES / INGREDIENTES / INGRÉDIENTS:</span><br>
+            Harina de trigo (glúten), agua, sal, levadura, aceite de oliva.<br>
+            SOJA Y MOSTAZA* (*Por contaminación cruzada / contaminação cruzada / contamination croisée)
+        </div>
+
+        <div class="nutricional">
+            <span class="highlight">VALOR NUTRICIONAL (100g):</span><br>
+            Energía: 1160 kJ / 274 kcal | Grasas: 4,3g (sat:1,2g)<br>
+            Hidratos: 50g (azúcares:0,5g) | Proteínas: 8,6g | Sal: 1,5g
+        </div>
+
+        <div class="conservacion">
+            <span class="highlight">CONSERVACIÓN:</span> 0°C a 4°C | Congelación: 3 meses<br>
+            <span class="highlight">COCCIÓN:</span> Horno 200-300°C
+        </div>
+
+        <div class="footer">
+            Hermanos Viudes S.L. | RGSEAA: 20.044822/A
+        </div>
+    </div>
+
+    <script>
+        // En la APP real: recibir lote, fecha elaboración, fecha consumo
+        function actualizarEtiqueta(lote, fechaElab, fechaConsumo) {
+            document.querySelectorAll('.lote span').forEach(span => {
+                let partes = span.innerText.split(':');
+                span.innerText = partes[0] + ': ' + lote;
+            });
+            // Actualizar fechas (simplificado)
+            let fechas = document.querySelectorAll('.fechas');
+            // ... lógica de reemplazo según idioma
+        }
+        // Ejemplo
+        actualizarEtiqueta('L25031902', '20-03-2026', '08-04-2026');
+    </script>
+</body>
+</html>
