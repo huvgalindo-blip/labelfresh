@@ -11,7 +11,7 @@ const path = require('path');
 async function generateEtiqueta(data, outputPath) {
   try {
     // Leer la plantilla HTML
-    const templatePath = path.join(__dirname, 'template.html');
+    const templatePath = path.join(__dirname, 'public', 'template.html');
     let html = fs.readFileSync(templatePath, 'utf8');
 
     // Reemplazar marcadores con los datos proporcionados

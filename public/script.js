@@ -4,6 +4,7 @@
  */
 
 // Elementos del DOM
+const idiomaSelect = document.getElementById('idioma');
 const productoSelect = document.getElementById('producto');
 const productoCustom = document.getElementById('productoCustom');
 const pesoInput = document.getElementById('peso');
@@ -17,6 +18,98 @@ const btnGenerar = document.getElementById('btnGenerar');
 const btnImprimir = document.getElementById('btnImprimir');
 const previewContainer = document.getElementById('previewContainer');
 const statusMessage = document.getElementById('statusMessage');
+
+// Traducciones por idioma
+const translations = {
+  es: {
+    TXT_INGREDIENTES: 'Ingredientes',
+    TXT_CONTIENE: 'Contiene',
+    TXT_ALERGENOS: 'Glúten, Soja, Mostaza* (*contaminación cruzada)',
+    TXT_NUTRICIONAL: 'INFORMACIÓN NUTRICIONAL',
+    TXT_ENERGIA: 'Energía',
+    TXT_GRASAS: 'Grasas',
+    TXT_SATURADAS: 'saturadas',
+    TXT_HIDRATOS: 'Hidratos',
+    TXT_AZUCARES: 'azúcares',
+    TXT_PROTEINAS: 'Proteínas',
+    TXT_SAL: 'Sal',
+    TXT_LOTE: 'Lote',
+    TXT_ELAB: 'Elab',
+    TXT_CONSUMIR_PREF: 'Consumir pref.',
+    TXT_CONSERVACION: 'Conservación',
+    TXT_CONGELACION: 'Congelación',
+    TXT_COCCION: 'Cocción',
+    TXT_HORNO: 'Horno',
+    TXT_ALERTA_ALERGENOS: 'PUEDE CONTENER SOJA Y MOSTAZA POR CONTAMINACIÓN CRUZADA',
+    TXT_FABRICANTE: 'Fabricante'
+  },
+  pt: {
+    TXT_INGREDIENTES: 'Ingredientes',
+    TXT_CONTIENE: 'Contém',
+    TXT_ALERGENOS: 'Glúten, Soja, Mostarda* (*contaminação cruzada)',
+    TXT_NUTRICIONAL: 'INFORMAÇÃO NUTRICIONAL',
+    TXT_ENERGIA: 'Energia',
+    TXT_GRASAS: 'Gorduras',
+    TXT_SATURADAS: 'saturadas',
+    TXT_HIDRATOS: 'Hidratos',
+    TXT_AZUCARES: 'açúcares',
+    TXT_PROTEINAS: 'Proteínas',
+    TXT_SAL: 'Sal',
+    TXT_LOTE: 'Lote',
+    TXT_ELAB: 'Elab',
+    TXT_CONSUMIR_PREF: 'Consumir pref.',
+    TXT_CONSERVACION: 'Conservação',
+    TXT_CONGELACION: 'Congelação',
+    TXT_COCCION: 'Cozimento',
+    TXT_HORNO: 'Forno',
+    TXT_ALERTA_ALERGENOS: 'PODE CONTER SOJA E MOSTARDA POR CONTAMINAÇÃO CRUZADA',
+    TXT_FABRICANTE: 'Fabricante'
+  },
+  fr: {
+    TXT_INGREDIENTES: 'Ingrédients',
+    TXT_CONTIENE: 'Contient',
+    TXT_ALERGENOS: 'Gluten, Soja, Moutarde* (*contamination croisée)',
+    TXT_NUTRICIONAL: 'INFORMATION NUTRITIONNELLE',
+    TXT_ENERGIA: 'Énergie',
+    TXT_GRASAS: 'Graisses',
+    TXT_SATURADAS: 'saturées',
+    TXT_HIDRATOS: 'Glucides',
+    TXT_AZUCARES: 'sucres',
+    TXT_PROTEINAS: 'Protéines',
+    TXT_SAL: 'Sel',
+    TXT_LOTE: 'Lot',
+    TXT_ELAB: 'Fab',
+    TXT_CONSUMIR_PREF: 'Consommer de préf.',
+    TXT_CONSERVACION: 'Conservation',
+    TXT_CONGELACION: 'Congélation',
+    TXT_COCCION: 'Cuisson',
+    TXT_HORNO: 'Four',
+    TXT_ALERTA_ALERGENOS: 'PEUT CONTENIR DU SOJA ET DE LA MOUTARDE PAR CONTAMINATION CROISÉE',
+    TXT_FABRICANTE: 'Fabricant'
+  },
+  en: {
+    TXT_INGREDIENTES: 'Ingredients',
+    TXT_CONTIENE: 'Contains',
+    TXT_ALERGENOS: 'Gluten, Soy, Mustard* (*cross-contamination)',
+    TXT_NUTRICIONAL: 'NUTRITIONAL INFORMATION',
+    TXT_ENERGIA: 'Energy',
+    TXT_GRASAS: 'Fat',
+    TXT_SATURADAS: 'saturates',
+    TXT_HIDRATOS: 'Carbohydrates',
+    TXT_AZUCARES: 'sugars',
+    TXT_PROTEINAS: 'Proteins',
+    TXT_SAL: 'Salt',
+    TXT_LOTE: 'Lot',
+    TXT_ELAB: 'Mfg',
+    TXT_CONSUMIR_PREF: 'Best before',
+    TXT_CONSERVACION: 'Storage',
+    TXT_CONGELACION: 'Freezing',
+    TXT_COCCION: 'Cooking',
+    TXT_HORNO: 'Oven',
+    TXT_ALERTA_ALERGENOS: 'MAY CONTAIN SOY AND MUSTARD DUE TO CROSS-CONTAMINATION',
+    TXT_FABRICANTE: 'Manufacturer'
+  }
+};
 
 /**
  * Manejar cambio en el selector de producto
@@ -210,6 +303,8 @@ function validateForm() {
  */
 function getFormData() {
   const producto = productoSelect.value === 'CUSTOM' ? productoCustom.value : productoSelect.value;
+  const idioma = idiomaSelect.value;
+  const langTranslations = translations[idioma] || translations.es;
   
   return {
     producto: producto,
@@ -217,7 +312,9 @@ function getFormData() {
     ingredientes: ingredientesInput.value.trim(),
     lote: loteInput.value.trim(),
     fechaElab: formatDate(fechaElabInput.value),
-    fechaConsumo: formatDate(fechaConsumoInput.value)
+    fechaConsumo: formatDate(fechaConsumoInput.value),
+    idioma: idioma,
+    ...langTranslations
   };
 }
 
@@ -236,6 +333,9 @@ function formatDate(dateStr) {
 async function generatePreviewHTML(data) {
   // Leer plantilla
   const response = await fetch('/template.html');
+  if (!response.ok) {
+    throw new Error('No se pudo cargar la plantilla');
+  }
   let html = await response.text();
   
   // Reemplazar marcadores
