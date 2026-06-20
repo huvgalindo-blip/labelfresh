@@ -22,6 +22,17 @@
           </div>
           <div class="card-body">
             <form id="labelForm">
+              <!-- Idioma -->
+              <div class="mb-3">
+                <label for="idioma" class="form-label">Idioma / Language *</label>
+                <select class="form-select" id="idioma" required>
+                  <option value="es">🇪🇸 Español (Castellano)</option>
+                  <option value="pt">🇵🇹 Português</option>
+                  <option value="fr">🇫🇷 Français</option>
+                  <option value="en">🇬🇧 English</option>
+                </select>
+              </div>
+
               <!-- Producto -->
               <div class="mb-3">
                 <label for="producto" class="form-label">Producto *</label>
@@ -117,7 +128,7 @@
               <li><strong>Tamaño:</strong> 68mm x 80mm (impresión térmica)</li>
               <li><strong>Resolución:</strong> 300 DPI recomendada</li>
               <li><strong>Formato:</strong> PDF generado con Puppeteer</li>
-              <li><strong>Idiomas:</strong> Español, Portugués, Francés (3 columnas)</li>
+              <li><strong>Idiomas:</strong> Español, Portugués, Francés, Inglés (etiquetas fijas traducidas)</li>
             </ul>
           </div>
         </div>

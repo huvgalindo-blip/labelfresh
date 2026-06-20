@@ -37,7 +37,7 @@ La aplicación se divide en dos paneles:
    - 🇫🇷 **Français** - Para mercado francés
    - 🇬🇧 **English** - Para mercado internacional
 
-**Nota:** La etiqueta generará automáticamente las traducciones en los 3 idiomas principales (ES, PT, FR) para cumplir con normativas europeas.
+**Nota:** El idioma seleccionado traduce automáticamente las etiquetas fijas de la plantilla (títulos, tabla nutricional, conservación, alertas, etc.). Los ingredientes y el nombre del producto los escribes tú en el idioma que corresponda al mercado.
 
 ---
 
@@ -203,24 +203,28 @@ Puedes imprimir en papel regular:
 
 ## 🌐 Soporte de Idiomas
 
-LabelFresh genera etiquetas con **3 idiomas simultáneos** para cumplir con normativas europeas:
+LabelFresh permite generar la etiqueta con las **etiquetas fijas traducidas** al idioma que elijas en el formulario.
 
-### Idiomas incluidos:
-1. **Español (ES)** - Columna izquierda
-2. **Portugués (PT)** - Columna central  
-3. **Francés (FR)** - Columna derecha
+### Idiomas disponibles:
+- 🇪🇸 **Español (Castellano)**
+- 🇵🇹 **Português**
+- 🇫🇷 **Français**
+- 🇬🇧 **English**
 
 ### Campos traducidos automáticamente:
-- Ingredientes / Ingredientes / Ingrédients
-- Lote / Lote / Lot
-- Elab / Elab / Fab
-- Consumir pref. / Consumir pref. / Consommer de préf.
-- Información nutricional
-- Conservación y cocción
-- Alertas de alérgenos
+- Título "Ingredientes" y aviso de alérgenos
+- Encabezado de información nutricional
+- Nombres de nutrientes (energía, grasas, hidratos, etc.)
+- Etiquetas de lote, elaboración y consumo preferente
+- Textos de conservación, congelación y cocción
+- Alerta de contaminación cruzada (soja y mostaza)
+- Etiqueta "Fabricante"
 
-### Idioma principal:
-El idioma que seleccionas en el formulario determina el orden de las columnas y el idioma principal de la etiqueta.
+### Campos que tú debes escribir:
+- Nombre del producto
+- Lista de ingredientes (incluyendo alérgenos entre paréntesis)
+
+**Ejemplo:** Si eliges **Français**, verás "Ingrédients", "Lot", "Fab", etc., pero debes redactar los ingredientes en francés si el producto se vende en Francia.
 
 ---
 
@@ -355,10 +359,65 @@ El idioma que seleccionas en el formulario determina el orden de las columnas y 
 
 ---
 
+## 🖥️ Instalar LabelFresh en Otros Equipos
+
+Puedes desplegar la aplicación en tantos ordenadores como necesites usando el repositorio de GitHub: [huvgalindo-blip/labelfresh](https://github.com/huvgalindo-blip/labelfresh).
+
+### Procedimiento en cada equipo nuevo
+
+1. Instalar **Node.js** (versión LTS desde [nodejs.org](https://nodejs.org/)).
+2. Obtener el proyecto:
+   ```bash
+   git clone https://github.com/huvgalindo-blip/labelfresh.git
+   cd labelfresh
+   ```
+   O descargar el ZIP desde GitHub (botón **Code → Download ZIP**).
+3. Instalar dependencias (solo la primera vez):
+   ```bash
+   npm install
+   ```
+4. Iniciar la aplicación cada vez que la vayas a usar:
+   ```bash
+   npm start
+   ```
+5. Abrir el navegador en `http://localhost:3000`.
+
+### Actualizar un equipo que ya tiene LabelFresh
+
+Si el proyecto se clonó con Git y hay cambios nuevos en GitHub:
+
+```bash
+cd labelfresh
+git pull
+npm install
+npm start
+```
+
+### Qué debes saber
+
+| Aspecto | Comportamiento |
+|---------|----------------|
+| **Acceso** | Solo desde el PC donde corre `npm start` (localhost) |
+| **PDFs generados** | Se guardan en `outputs/` de **ese** equipo |
+| **Impresora** | Cada PC usa su propia impresora local o de red |
+| **Sincronización** | El código se sincroniza vía GitHub; los PDFs no |
+| **Internet** | Necesaria para instalar; no hace falta para usar el día a día |
+
+### Flujo recomendado para un equipo de producción
+
+1. Un responsable técnico mantiene el repositorio en GitHub.
+2. Cada puesto de etiquetado clona o actualiza el proyecto.
+3. Cada operario ejecuta `npm start` al iniciar la jornada.
+4. Al cerrar la terminal, la aplicación deja de estar disponible hasta el próximo `npm start`.
+
+Para instrucciones de instalación resumidas, consulta **[GUIA_RAPIDA.md](GUIA_RAPIDA.md)**.
+
+---
+
 ## 📞 Ayuda Adicional
 
 ### Documentación disponible:
-- **GUIA_RAPIDA.md:** Instalación rápida
+- **GUIA_RAPIDA.md:** Instalación rápida y despliegue en otros equipos
 - **README.md:** Información técnica del proyecto
 - **MANUAL_USUARIO.md:** Este documento
 

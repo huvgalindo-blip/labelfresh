@@ -11,7 +11,7 @@ Aplicación web para generar etiquetas alimentarias en formato PDF para impresi�
 - ✅ Cálculo automático de fecha de consumo (+19 días)
 - ✅ Vista previa en pantalla
 - ✅ Interfaz responsive con Bootstrap 5
-- ✅ Código modular y comentado
+- ✅ Soporte multiidioma (ES, PT, FR, EN) en etiquetas fijas
 - ✅ Estándares W3C
 
 ## 🚀 Instalación Rápida (Guía para usuarios no técnicos)
@@ -68,16 +68,37 @@ npm start
 
 Luego abre: `http://localhost:3000`
 
+> **Guías de uso:** [GUIA_RAPIDA.md](GUIA_RAPIDA.md) (instalación y despliegue) · [MANUAL_USUARIO.md](MANUAL_USUARIO.md) (uso completo)
+
+## 🖥️ Usar en otros equipos
+
+**Sí, puedes instalar LabelFresh en varios ordenadores** desde el repositorio [github.com/huvgalindo-blip/labelfresh](https://github.com/huvgalindo-blip/labelfresh).
+
+En cada equipo:
+
+```bash
+git clone https://github.com/huvgalindo-blip/labelfresh.git
+cd labelfresh
+npm install    # solo la primera vez
+npm start
+```
+
+Para actualizar un equipo existente: `git pull`, luego `npm install` (si cambió `package.json`) y `npm start`.
+
+Cada instalación es **independiente**: corre en `localhost:3000` del PC local y guarda los PDF en su propia carpeta `outputs/`. Ver [GUIA_RAPIDA.md](GUIA_RAPIDA.md) para escenarios detallados (ZIP, Git, varios puestos de producción).
+
 ## 📁 Estructura del Proyecto
 
 ```
 labelfresh/
 ├── server.js              # Servidor Express
 ├── generatePDF.js         # Módulo de generación PDF con Puppeteer
-├── template.html          # Plantilla base de la etiqueta
 ├── package.json           # Dependencias
+├── GUIA_RAPIDA.md         # Instalación y uso básico
+├── MANUAL_USUARIO.md      # Manual completo de usuario
 ├── public/
 │   ├── index.html         # Interfaz de usuario
+│   ├── template.html      # Plantilla base de la etiqueta
 │   ├── style.css          # Estilos adicionales
 │   └── script.js          # Lógica frontend
 └── outputs/               # Carpeta donde se guardan los PDFs
@@ -87,7 +108,8 @@ labelfresh/
 
 ### Generar una etiqueta:
 
-1. **Seleccionar producto** del menú desplegable o escribir uno personalizado
+1. **Seleccionar idioma** (ES, PT, FR o EN) para las etiquetas fijas de la plantilla
+2. **Seleccionar producto** del menú desplegable o escribir uno personalizado
 2. **Editar ingredientes** si es necesario
 3. **Ingresar lote** (ej: L-2024-001)
 4. **Seleccionar fecha de elaboración**

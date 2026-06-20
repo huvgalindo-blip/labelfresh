@@ -26,7 +26,9 @@ app.post('/api/generar', async (req, res) => {
       lote, 
       fechaElab, 
       fechaConsumo,
-      peso 
+      peso,
+      idioma,
+      ...labelTexts
     } = req.body;
 
     // Validación básica
@@ -47,7 +49,8 @@ app.post('/api/generar', async (req, res) => {
       INGREDIENTES: ingredientes,
       LOTE: lote,
       FECHA_ELABORACION: fechaElab,
-      FECHA_CONSUMO: fechaConsumo
+      FECHA_CONSUMO: fechaConsumo,
+      ...labelTexts
     };
 
     // Generar PDF
