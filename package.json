@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "launch": "node scripts/launch.js",
     "dev": "node server.js",
     "install-deps": "npm install"
   },

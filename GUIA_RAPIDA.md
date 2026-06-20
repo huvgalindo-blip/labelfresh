@@ -6,7 +6,38 @@ Repositorio oficial: [github.com/huvgalindo-blip/labelfresh](https://github.com/
 
 ---
 
-## Instalación en 3 pasos (Windows, Mac, Linux)
+## Inicio rápido (recomendado)
+
+La forma más sencilla de usar LabelFresh es con el **lanzador incluido** en el repositorio:
+
+| Sistema | Qué hacer |
+|---------|-----------|
+| **Windows** | Doble clic en **`Iniciar-LabelFresh.bat`** |
+| **Mac** | Doble clic en **`Iniciar-LabelFresh.command`** |
+| **Linux** | Ejecutar `./iniciar-labelfresh.sh` en terminal |
+
+El lanzador hace todo automáticamente:
+
+1. Comprueba que Node.js esté instalado (si no, muestra instrucciones).
+2. Instala dependencias la **primera vez** (`npm install`).
+3. Inicia el servidor.
+4. Abre el navegador en `http://localhost:3000`.
+
+> **Importante:** Mantén abierta la ventana negra (consola) mientras uses la app. Para cerrar LabelFresh, pulsa **Ctrl+C** en esa ventana.
+
+### Requisito único: Node.js
+
+Solo necesitas instalar Node.js **una vez** por equipo:
+
+- Descarga LTS desde: https://nodejs.org/
+- Instala con las opciones por defecto
+- Después, siempre usa el lanzador (`.bat`, `.command` o `.sh`)
+
+---
+
+## Instalación manual (alternativa)
+
+Si prefieres usar la terminal en lugar del lanzador:
 
 ### Paso 1: Descargar Node.js
 
@@ -32,17 +63,18 @@ cd labelfresh
 
 ### Paso 3: Instalar y ejecutar
 
-1. Abre una terminal en la carpeta del proyecto
-   - **Windows:** clic en la barra de dirección de la carpeta, escribe `cmd` y pulsa Enter
-   - **Mac/Linux:** abre Terminal en esa carpeta
-2. Ejecuta:
-
 ```bash
 npm install
+npm run launch
+```
+
+O, si ya instalaste dependencias antes:
+
+```bash
 npm start
 ```
 
-3. Abre el navegador en: **http://localhost:3000**
+Luego abre el navegador en: **http://localhost:3000**
 
 ---
 
@@ -84,10 +116,12 @@ Para el detalle completo de cada campo, botones y solución de problemas, consul
 
 En cada ordenador donde quieras imprimir etiquetas:
 
-1. Instala **Node.js** (si no lo tiene).
-2. Clona o descarga el proyecto desde GitHub (ver Paso 2 arriba).
-3. Ejecuta `npm install` **una sola vez** en ese equipo.
-4. Cada día de trabajo: `npm start` y abre `http://localhost:3000`.
+1. Instala **Node.js** (si no lo tiene) — solo una vez.
+2. Clona o descarga el proyecto desde GitHub (ver arriba).
+3. **Doble clic en `Iniciar-LabelFresh.bat`** (Windows) o el lanzador de tu sistema.
+4. La primera vez instalará dependencias solo; las siguientes veces abrirá directamente.
+
+No hace falta abrir terminal ni escribir comandos si usas el lanzador.
 
 ### Escenario 2: Mantener varios equipos actualizados
 

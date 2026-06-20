@@ -12,9 +12,24 @@ Aplicación web para generar etiquetas alimentarias en formato PDF para impresi�
 - ✅ Vista previa en pantalla
 - ✅ Interfaz responsive con Bootstrap 5
 - ✅ Soporte multiidioma (ES, PT, FR, EN) en etiquetas fijas
+- ✅ Lanzador incluido: doble clic para iniciar (Windows, Mac, Linux)
 - ✅ Estándares W3C
 
-## 🚀 Instalación Rápida (Guía para usuarios no técnicos)
+## ▶️ Inicio con un clic (recomendado)
+
+1. Instala **Node.js LTS** una sola vez: [nodejs.org](https://nodejs.org/)
+2. Descarga o clona el repositorio: [github.com/huvgalindo-blip/labelfresh](https://github.com/huvgalindo-blip/labelfresh)
+3. Ejecuta el lanzador según tu sistema:
+
+| Sistema | Archivo |
+|---------|---------|
+| Windows | **`Iniciar-LabelFresh.bat`** (doble clic) |
+| Mac | **`Iniciar-LabelFresh.command`** (doble clic) |
+| Linux | `./iniciar-labelfresh.sh` |
+
+El lanzador instala dependencias la primera vez, arranca el servidor y abre el navegador en `http://localhost:3000`. Mantén la ventana de consola abierta; cierra con **Ctrl+C**.
+
+## 🚀 Instalación manual (alternativa)
 
 ### Requisitos previos:
 - **Node.js** (versión 14 o superior) - [Descargar aquí](https://nodejs.org/)
@@ -76,14 +91,17 @@ Luego abre: `http://localhost:3000`
 
 En cada equipo:
 
+1. Instala Node.js (una vez).
+2. Clona o descarga el proyecto.
+3. Usa **`Iniciar-LabelFresh.bat`** (Windows) o el lanzador equivalente.
+
 ```bash
 git clone https://github.com/huvgalindo-blip/labelfresh.git
 cd labelfresh
-npm install    # solo la primera vez
-npm start
+# Luego doble clic en Iniciar-LabelFresh.bat
 ```
 
-Para actualizar un equipo existente: `git pull`, luego `npm install` (si cambió `package.json`) y `npm start`.
+Para actualizar: `git pull` y volver a usar el lanzador.
 
 Cada instalación es **independiente**: corre en `localhost:3000` del PC local y guarda los PDF en su propia carpeta `outputs/`. Ver [GUIA_RAPIDA.md](GUIA_RAPIDA.md) para escenarios detallados (ZIP, Git, varios puestos de producción).
 
@@ -91,17 +109,22 @@ Cada instalación es **independiente**: corre en `localhost:3000` del PC local y
 
 ```
 labelfresh/
-├── server.js              # Servidor Express
-├── generatePDF.js         # Módulo de generación PDF con Puppeteer
-├── package.json           # Dependencias
-├── GUIA_RAPIDA.md         # Instalación y uso básico
-├── MANUAL_USUARIO.md      # Manual completo de usuario
+├── Iniciar-LabelFresh.bat      # Lanzador Windows (doble clic)
+├── Iniciar-LabelFresh.command  # Lanzador Mac (doble clic)
+├── iniciar-labelfresh.sh       # Lanzador Linux
+├── scripts/
+│   └── launch.js               # Lógica del lanzador
+├── server.js                   # Servidor Express
+├── generatePDF.js              # Generación PDF con Puppeteer
+├── package.json
+├── GUIA_RAPIDA.md
+├── MANUAL_USUARIO.md
 ├── public/
-│   ├── index.html         # Interfaz de usuario
-│   ├── template.html      # Plantilla base de la etiqueta
-│   ├── style.css          # Estilos adicionales
-│   └── script.js          # Lógica frontend
-└── outputs/               # Carpeta donde se guardan los PDFs
+│   ├── index.html
+│   ├── template.html
+│   ├── style.css
+│   └── script.js
+└── outputs/                    # PDFs generados
 ```
 
 ## 🎯 Uso

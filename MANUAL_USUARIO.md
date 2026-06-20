@@ -10,13 +10,23 @@ LabelFresh es una aplicación web que genera **etiquetas alimentarias profesiona
 
 ### 1. Iniciar la aplicación
 
-Si ya has instalado LabelFresh (ver GUIA_RAPIDA.md), simplemente:
+**Forma recomendada:** doble clic en **`Iniciar-LabelFresh.bat`** (Windows) o **`Iniciar-LabelFresh.command`** (Mac).
+
+El lanzador abrirá automáticamente el navegador en `http://localhost:3000`.
+
+**Alternativa manual:**
+
+```bash
+npm run launch
+```
+
+O, si ya tienes dependencias instaladas:
 
 ```bash
 npm start
 ```
 
-Luego abre tu navegador en: `http://localhost:3000`
+> Mantén abierta la ventana de consola mientras uses LabelFresh. Para cerrar, pulsa **Ctrl+C**.
 
 ### 2. Interfaz de usuario
 
@@ -372,15 +382,11 @@ Puedes desplegar la aplicación en tantos ordenadores como necesites usando el r
    cd labelfresh
    ```
    O descargar el ZIP desde GitHub (botón **Code → Download ZIP**).
-3. Instalar dependencias (solo la primera vez):
+3. Instalar dependencias (solo la primera vez, o usar el lanzador que lo hace solo):
    ```bash
    npm install
    ```
-4. Iniciar la aplicación cada vez que la vayas a usar:
-   ```bash
-   npm start
-   ```
-5. Abrir el navegador en `http://localhost:3000`.
+4. Iniciar con doble clic en **`Iniciar-LabelFresh.bat`** (Windows) o el lanzador de tu sistema.
 
 ### Actualizar un equipo que ya tiene LabelFresh
 
