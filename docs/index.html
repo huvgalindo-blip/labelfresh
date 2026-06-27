@@ -183,172 +183,174 @@
       margin-bottom: 10px;
     }
 
-    /* Etiqueta en vista previa */
+    /* Etiqueta en vista previa — dimensiones reales Zebra ZD420 203 dpi */
     .label-preview {
       width: 68mm;
       height: 80mm;
       background: white;
       border: 2px solid #000;
-      font-family: Arial, sans-serif;
-      font-size: 7pt;
-      line-height: 1.2;
-      padding: 2mm;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-family: Arial, sans-serif;
+      font-size: 6pt;
+      line-height: 1.15;
+      color: #000;
     }
 
-    .label-container {
-      width: 100%;
-      height: 100%;
+    .label-preview .label-container {
+      width: 64mm;
+      height: 76mm;
+      margin: 2mm;
       display: flex;
       flex-direction: column;
-      font-size: 7pt;
+      overflow: hidden;
     }
 
-    .header-label {
+    .label-preview .header {
       text-align: center;
       border-bottom: 1px solid #000;
-      padding-bottom: 1mm;
-      margin-bottom: 1mm;
-    }
-
-    .logo-img {
-      width: 100%;
-      max-height: 8mm;
-      object-fit: contain;
+      padding-bottom: 0.5mm;
       margin-bottom: 0.5mm;
     }
 
-    .logo {
-      font-size: 8pt;
+    .label-preview .logo-img {
+      width: 100%;
+      max-height: 7mm;
+      object-fit: contain;
+      margin-bottom: 0.3mm;
+    }
+
+    .label-preview .logo {
+      font-size: 6.5pt;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
-    .producto-nombre {
-      font-size: 9pt;
+    .label-preview .producto-nombre {
+      font-size: 8pt;
       font-weight: bold;
-      margin-top: 1mm;
+      margin-top: 0.3mm;
       text-transform: uppercase;
     }
 
-    .producto-peso {
-      font-size: 6pt;
+    .label-preview .producto-peso {
+      font-size: 5.5pt;
       font-weight: normal;
     }
 
-    .ingredientes {
-      margin-bottom: 1mm;
-      font-size: 5.5pt;
+    .label-preview .ingredientes {
+      margin-bottom: 0.8mm;
+      font-size: 5pt;
     }
 
-    .ingredientes-title {
+    .label-preview .ingredientes-title {
       font-weight: bold;
       text-decoration: underline;
     }
 
-    .alergenos {
-      font-size: 5pt;
+    .label-preview .alergenos {
+      font-size: 4.5pt;
       font-weight: bold;
-      margin-top: 0.5mm;
+      color: #333;
+      margin-top: 0.3mm;
     }
 
-    .nutricional {
+    .label-preview .nutricional {
       border: 1px solid #000;
-      margin-bottom: 1mm;
+      margin-bottom: 0.8mm;
       font-size: 4.5pt;
     }
 
-    .nutricional-title {
+    .label-preview .nutricional-title {
       background: #f0f0f0;
       font-weight: bold;
       text-align: center;
-      padding: 0.5mm;
+      padding: 0.3mm;
       border-bottom: 1px solid #000;
     }
 
-    .nutricional-row {
+    .label-preview .nutricional-row {
       display: flex;
       border-bottom: 1px solid #ccc;
-      padding: 0.3mm 0;
     }
 
-    .nutricional-row:last-child {
+    .label-preview .nutricional-row:last-child {
       border-bottom: none;
     }
 
-    .nutri-label {
+    .label-preview .nutri-label {
       flex: 1;
-      padding: 0.3mm 0.5mm;
+      padding: 0.2mm 0.5mm;
       font-weight: bold;
     }
 
-    .nutri-value {
+    .label-preview .nutri-value {
       flex: 1;
-      padding: 0.3mm 0.5mm;
+      padding: 0.2mm 0.5mm;
       text-align: right;
     }
 
-    .lote-fechas {
+    .label-preview .lote-fechas {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 1mm;
-      font-size: 5.5pt;
+      margin-bottom: 0.8mm;
+      font-size: 5pt;
       border: 1px solid #000;
-      padding: 0.8mm;
+      padding: 0.5mm;
     }
 
-    .lote-info, .fecha-info {
+    .label-preview .lote-info,
+    .label-preview .fecha-info {
       flex: 1;
     }
 
-    .lote-info {
+    .label-preview .lote-info {
       border-right: 1px solid #000;
-      padding-right: 0.8mm;
+      padding-right: 0.5mm;
     }
 
-    .fecha-info {
-      padding-left: 0.8mm;
+    .label-preview .fecha-info {
+      padding-left: 0.5mm;
     }
 
-    .info-label {
+    .label-preview .info-label {
       font-weight: bold;
+      font-size: 4pt;
+    }
+
+    .label-preview .info-extra {
       font-size: 4.5pt;
+      margin-bottom: 0.3mm;
     }
 
-    .info-extra {
-      font-size: 4.5pt;
-      margin-bottom: 0.5mm;
+    .label-preview .info-extra-row {
+      margin-bottom: 0.15mm;
     }
 
-    .info-extra-row {
-      margin-bottom: 0.2mm;
-    }
-
-    .info-extra-label {
-      font-weight: bold;
-    }
-
-    .fabricante {
-      font-size: 4.5pt;
-      margin-top: auto;
-      border-top: 1px solid #000;
-      padding-top: 0.5mm;
-    }
-
-    .fabricante-nombre {
+    .label-preview .info-extra-label {
       font-weight: bold;
     }
 
-    .alerta-alergenos {
-      font-size: 4.5pt;
+    .label-preview .alerta-alergenos {
+      font-size: 4pt;
       font-weight: bold;
       color: #cc0000;
-      margin-top: 0.3mm;
+      margin-top: 0.2mm;
       text-align: center;
       border: 1px solid #cc0000;
-      padding: 0.3mm;
+      padding: 0.2mm;
+    }
+
+    .label-preview .fabricante {
+      font-size: 4pt;
+      margin-top: 0.3mm;
+      border-top: 1px solid #000;
+      padding-top: 0.3mm;
+    }
+
+    .label-preview .fabricante-nombre {
+      font-weight: bold;
     }
 
     /* Status Messages */
@@ -554,9 +556,9 @@
             <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #667eea;">
               <h6 style="margin-bottom: 10px; color: #667eea; font-weight: 600;">ℹ️ Información</h6>
               <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; color: #666;">
-                <li><strong>Tamaño:</strong> 68mm x 80mm (impresión térmica)</li>
-                <li><strong>Resolución:</strong> 300 DPI recomendada</li>
-                <li><strong>Formato:</strong> PDF en el navegador</li>
+                <li><strong>Tamaño:</strong> 68mm x 80mm (Zebra ZD420 203 dpi)</li>
+                <li><strong>Resolución:</strong> 203 DPI (Zebra ZD420)</li>
+                <li><strong>Formato:</strong> PDF descargable / Impresión directa</li>
               </ul>
             </div>
           </div>
@@ -708,37 +710,35 @@
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Etiqueta Alimentaria</title>
           <style>
+            @page { size: 68mm 80mm; margin: 0; }
             * { margin: 0; padding: 0; box-sizing: border-box; }
-            body {
-              width: 68mm; height: 80mm; font-family: Arial, sans-serif; font-size: 7pt;
-              line-height: 1.2; background: white; color: #000; padding: 2mm; overflow: hidden;
-            }
-            .label-container { width: 100%; height: 100%; display: flex; flex-direction: column; }
-            .header { text-align: center; border-bottom: 1px solid #000; padding-bottom: 1mm; margin-bottom: 1mm; }
-            .logo-img { width: 100%; max-height: 8mm; object-fit: contain; margin-bottom: 0.5mm; }
-            .logo { font-size: 7pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
-            .producto-nombre { font-size: 9pt; font-weight: bold; margin-top: 0.5mm; text-transform: uppercase; }
-            .producto-peso { font-size: 6pt; font-weight: normal; }
-            .ingredientes { margin-bottom: 1mm; font-size: 5.5pt; }
+            html, body { width: 68mm; height: 80mm; overflow: hidden; background: white; color: #000; font-family: Arial, sans-serif; font-size: 6pt; line-height: 1.15; }
+            .label-container { width: 64mm; height: 76mm; margin: 2mm; display: flex; flex-direction: column; overflow: hidden; }
+            .header { text-align: center; border-bottom: 1px solid #000; padding-bottom: 0.5mm; margin-bottom: 0.5mm; }
+            .logo-img { width: 100%; max-height: 7mm; object-fit: contain; margin-bottom: 0.3mm; }
+            .logo { font-size: 6.5pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+            .producto-nombre { font-size: 8pt; font-weight: bold; margin-top: 0.3mm; text-transform: uppercase; }
+            .producto-peso { font-size: 5.5pt; font-weight: normal; }
+            .ingredientes { margin-bottom: 0.8mm; font-size: 5pt; }
             .ingredientes-title { font-weight: bold; text-decoration: underline; }
-            .alergenos { font-size: 5pt; font-weight: bold; color: #333; margin-top: 0.5mm; }
-            .nutricional { border: 1px solid #000; margin-bottom: 1mm; font-size: 4.5pt; }
-            .nutricional-title { background: #f0f0f0; font-weight: bold; text-align: center; padding: 0.5mm; border-bottom: 1px solid #000; }
+            .alergenos { font-size: 4.5pt; font-weight: bold; color: #333; margin-top: 0.3mm; }
+            .nutricional { border: 1px solid #000; margin-bottom: 0.8mm; font-size: 4.5pt; }
+            .nutricional-title { background: #f0f0f0; font-weight: bold; text-align: center; padding: 0.3mm; border-bottom: 1px solid #000; }
             .nutricional-row { display: flex; border-bottom: 1px solid #ccc; }
             .nutricional-row:last-child { border-bottom: none; }
-            .nutri-label { flex: 1; padding: 0.3mm 0.5mm; font-weight: bold; }
-            .nutri-value { flex: 1; padding: 0.3mm 0.5mm; text-align: right; }
-            .lote-fechas { display: flex; justify-content: space-between; margin-bottom: 1mm; font-size: 5.5pt; border: 1px solid #000; padding: 0.8mm; }
+            .nutri-label { flex: 1; padding: 0.2mm 0.5mm; font-weight: bold; }
+            .nutri-value { flex: 1; padding: 0.2mm 0.5mm; text-align: right; }
+            .lote-fechas { display: flex; justify-content: space-between; margin-bottom: 0.8mm; font-size: 5pt; border: 1px solid #000; padding: 0.5mm; }
             .lote-info, .fecha-info { flex: 1; }
-            .lote-info { border-right: 1px solid #000; padding-right: 0.8mm; }
-            .fecha-info { padding-left: 0.8mm; }
-            .info-label { font-weight: bold; font-size: 4.5pt; }
-            .info-extra { font-size: 4.5pt; margin-bottom: 0.5mm; }
-            .info-extra-row { margin-bottom: 0.2mm; }
+            .lote-info { border-right: 1px solid #000; padding-right: 0.5mm; }
+            .fecha-info { padding-left: 0.5mm; }
+            .info-label { font-weight: bold; font-size: 4pt; }
+            .info-extra { font-size: 4.5pt; margin-bottom: 0.3mm; }
+            .info-extra-row { margin-bottom: 0.15mm; }
             .info-extra-label { font-weight: bold; }
-            .fabricante { font-size: 4.5pt; margin-top: auto; border-top: 1px solid #000; padding-top: 0.5mm; }
+            .alerta-alergenos { font-size: 4pt; font-weight: bold; color: #cc0000; margin-top: 0.2mm; text-align: center; border: 1px solid #cc0000; padding: 0.2mm; }
+            .fabricante { font-size: 4pt; margin-top: 0.3mm; border-top: 1px solid #000; padding-top: 0.3mm; }
             .fabricante-nombre { font-weight: bold; }
-            .alerta-alergenos { font-size: 4.5pt; font-weight: bold; color: #cc0000; margin-top: 0.3mm; text-align: center; border: 1px solid #cc0000; padding: 0.3mm; }
           </style>
         </head>
         <body>
@@ -819,18 +819,35 @@
 
     function downloadPDF() {
       const data = getFormData();
-      const element = document.createElement('div');
-      element.innerHTML = generateLabelHTML().replace(/<!DOCTYPE[^>]*>/g, '').replace(/<html[^>]*>/g, '').replace(/<\/html>/g, '').replace(/<head[^>]*>.*<\/head>/s, '');
-      
+      const labelHTML = generateLabelHTML();
+      const parser = new DOMParser();
+      const parsed = parser.parseFromString(labelHTML, 'text/html');
+
+      // Build a render container with the label CSS preserved
+      const container = document.createElement('div');
+      container.style.cssText = 'position:fixed;left:-9999px;top:0;width:68mm;height:80mm;overflow:hidden;background:white;';
+
+      const styleEl = document.createElement('style');
+      parsed.head.querySelectorAll('style').forEach(s => { styleEl.textContent += s.textContent; });
+      container.appendChild(styleEl);
+
+      const inner = document.createElement('div');
+      inner.innerHTML = parsed.body.innerHTML;
+      container.appendChild(inner);
+
+      document.body.appendChild(container);
+
       const options = {
         margin: 0,
         filename: `etiqueta_${data.lote}_${new Date().getTime()}.pdf`,
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
+        html2canvas: { scale: 3, useCORS: true },
         jsPDF: { unit: 'mm', format: [68, 80], orientation: 'portrait' }
       };
-      
-      html2pdf().set(options).from(element).save();
+
+      html2pdf().set(options).from(container).save().then(() => {
+        document.body.removeChild(container);
+      });
       showAlert('PDF descargado correctamente', 'success');
     }
 
