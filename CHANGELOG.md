@@ -1,6 +1,28 @@
 # LabelFresh - Changelog
 
-## Versión Actual: v1.0.0 - Multi-Marca (2026-06-20)
+## Versión Actual: v1.1.0 - Zebra ZD420 / GitHub Pages (2026-06-27)
+
+### ✨ Cambios principales
+
+- **Plataforma única:** `docs/index.html` es la única versión activa. La versión local Node/Express (`server.js`, `generatePDF.js`, `public/`) queda como legacy y no se mantiene.
+- **Impresión corregida para Zebra ZD420 203 dpi:**
+  - Añadido `@page { size: 68mm 80mm; margin: 0; }` en la plantilla de etiqueta para que la impresión y el PDF respeten el tamaño exacto.
+  - Área útil interna de **64mm × 76mm** con margen de seguridad de 2mm para evitar cortes en la impresora térmica.
+  - Reducidos paddings, márgenes verticales y tamaños de tipografía en header, ingredientes, tabla nutricional, lote/fechas, info extra, alerta de alérgenos y fabricante.
+- **Vista previa corregida:** los estilos de la vista previa ahora están correctamente aislados bajo `.label-preview .xxx` para que no entren en conflicto con los estilos globales de la app y representen fielmente el resultado de impresión.
+- **Exportación PDF mejorada:** la función `downloadPDF()` ahora preserva el CSS de la etiqueta al generar el PDF (anteriormente se perdía el bloque `<style>`).
+- **Documentación actualizada:** README y CHANGELOG reflejan el nuevo enfoque con GitHub Pages como única plataforma activa.
+
+### 🎯 Acceso
+
+**Web (versión activa):**
+```
+https://huvgalindo-blip.github.io/labelfresh/
+```
+
+---
+
+## v1.0.0 - Multi-Marca (2026-06-20)
 
 ### ✨ Características
 
@@ -31,17 +53,12 @@
 ```
 labelfresh/
 ├── docs/
-│   ├── index.html          # Aplicación web (versión actual)
-│   └── .nojekyll           # Configuración GitHub Pages
+│   ├── index.html          # ✅ Aplicación web (versión activa)
+│   └── .nojekyll
 ├── logo/
 │   └── LOGOTIPO_QUALITY_PIZZAFRESH_1.png
-├── public/                 # Versión antigua (Node.js)
-├── INSTALAR.bat            # Script instalación Windows
-├── INICIAR.bat             # Script iniciar Windows
-├── instalar.sh             # Script instalación Mac/Linux
-├── iniciar.sh              # Script iniciar Mac/Linux
-├── GUIA_RAPIDA.md          # Guía de uso
-└── CHANGELOG.md            # Este archivo
+├── CHANGELOG.md
+└── README.md
 ```
 
 ### 🔗 Acceso
@@ -51,59 +68,30 @@ labelfresh/
 https://huvgalindo-blip.github.io/labelfresh/
 ```
 
-**Local (Scripts):**
-- Windows: `INSTALAR.bat`
-- Mac/Linux: `bash instalar.sh`
-
 ---
 
 ## Historial de Versiones
 
-### v1.0.0 - Multi-Marca (2026-06-20)
-- ✅ Sistema de marcas multi-cliente
-- ✅ Logos personalizables por URL
-- ✅ Interfaz responsive con 3 paneles
-- ✅ Campos completamente editables
-- ✅ Rama de backup: `backup-v1-multimarca`
-
-### v0.9.0 - Single Brand (2026-06-20)
-- ✅ Versión inicial con Quality Pizzafresh
-- ✅ Logo integrado
-- ✅ Vista previa y PDF
-- 📌 Rama: `master` (antes de v1.0.0)
+- **v1.1.0** (2026-06-27): Ajuste impresión Zebra ZD420 203 dpi, migración a GitHub Pages como versión única activa
+- **v1.0.0** (2026-06-20): Sistema de marcas multi-cliente, logos personalizables
+- **v0.9.0** (2026-06-20): Versión inicial con Quality Pizzafresh
 
 ---
 
 ## 🛠️ Ramas Disponibles
 
-- **master**: Versión actual (v1.0.0 Multi-Marca)
+- **master**: Versión actual (v1.1.0)
 - **backup-v1-multimarca**: Backup de v1.0.0 (punto de restauración)
-- **gh-pages**: Configuración de GitHub Pages
 
 ---
 
 ## 📝 Notas de Desarrollo
 
-Para realizar cambios o modificaciones:
+La aplicación vive en `docs/index.html` y se publica automáticamente en GitHub Pages con cada push a `master`. Para realizar cambios:
 
-1. Crear una nueva rama a partir de `backup-v1-multimarca`
-2. Realizar cambios en la nueva rama
-3. Probar en vista previa
-4. Hacer merge a `master` cuando esté listo
-
-### Ejemplo:
-
-```bash
-# Crear rama para nuevas funciones
-git checkout -b feature/nueva-funcionalidad backup-v1-multimarca
-
-# Hacer cambios y commit
-git commit -m "Agregar nueva funcionalidad"
-
-# Hacer merge a master cuando esté listo
-git checkout master
-git merge feature/nueva-funcionalidad
-```
+1. Editar `docs/index.html` directamente o en una rama nueva
+2. Probar en vista previa local abriendo el archivo en un navegador
+3. Hacer merge a `master` — GitHub Pages se actualiza automáticamente
 
 ---
 
@@ -122,4 +110,4 @@ git merge feature/nueva-funcionalidad
 
 **LabelFresh** - Generador de Etiquetas Alimentarias Personalizables
 
-Desarrollo: 2026-06-20
+Desarrollo: 2026-06-20 / Actualización: 2026-06-27

@@ -1,3 +1,11 @@
+/**
+ * LEGACY - Este archivo ya no se usa activamente.
+ * La versión principal de LabelFresh es la app web publicada en GitHub Pages:
+ * https://huvgalindo-blip.github.io/labelfresh/
+ *
+ * Este servidor Node/Express fue la implementación original y se conserva
+ * únicamente como referencia histórica.
+ */
 const express = require('express');
 const generateEtiqueta = require('./generatePDF');
 const path = require('path');
