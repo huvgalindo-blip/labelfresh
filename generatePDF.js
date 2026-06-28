@@ -44,11 +44,11 @@ async function generateEtiqueta(data, outputPath) {
       timeout: 30000
     });
 
-    // Generar PDF con dimensiones exactas para impresión térmica
+    // Generar PDF con dimensiones exactas para impresión térmica (horizontal 80×68mm)
     await page.pdf({
       path: outputPath,
-      width: '68mm',
-      height: '80mm',
+      width: '80mm',
+      height: '68mm',
       printBackground: true,
       margin: { 
         top: '0mm', 

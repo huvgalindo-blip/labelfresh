@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Etiqueta Alimentaria</title>
   <style>
+    @page { size: 80mm 68mm landscape; margin: 0; }
+
     * {
       margin: 0;
       padding: 0;
@@ -12,10 +14,10 @@
     }
 
     body {
-      width: 68mm;
-      height: 80mm;
+      width: 80mm;
+      height: 68mm;
       font-family: Arial, sans-serif;
-      font-size: 7pt;
+      font-size: 6pt;
       line-height: 1.2;
       background: white;
       color: #000;
@@ -30,37 +32,70 @@
       flex-direction: column;
     }
 
-    /* Header con logo y producto */
+    /* Cabecera: logo + nombre producto en fila */
     .header {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 2mm;
       border-bottom: 1px solid #000;
       padding-bottom: 1mm;
       margin-bottom: 1mm;
     }
 
+    .logo-section {
+      flex: 0 0 22mm;
+    }
+
     .logo {
-      font-size: 8pt;
+      font-size: 7pt;
       font-weight: bold;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
+    .producto-section {
+      flex: 1;
+    }
+
     .producto-nombre {
-      font-size: 9pt;
+      font-size: 8pt;
       font-weight: bold;
-      margin-top: 1mm;
       text-transform: uppercase;
+      line-height: 1.1;
     }
 
     .producto-peso {
-      font-size: 7pt;
+      font-size: 6pt;
       font-weight: normal;
+    }
+
+    /* Cuerpo principal: dos columnas */
+    .label-body {
+      display: flex;
+      gap: 1.5mm;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .col-left {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .col-right {
+      flex: 1;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     /* Ingredientes */
     .ingredientes {
       margin-bottom: 1mm;
-      font-size: 6pt;
+      font-size: 5pt;
     }
 
     .ingredientes-title {
@@ -69,7 +104,7 @@
     }
 
     .alergenos {
-      font-size: 6pt;
+      font-size: 4.5pt;
       font-weight: bold;
       color: #333;
       margin-top: 0.5mm;
@@ -79,20 +114,21 @@
     .nutricional {
       border: 1px solid #000;
       margin-bottom: 1mm;
-      font-size: 5pt;
+      font-size: 4.5pt;
     }
 
     .nutricional-title {
       background: #f0f0f0;
       font-weight: bold;
       text-align: center;
-      padding: 0.5mm;
+      padding: 0.3mm;
       border-bottom: 1px solid #000;
     }
 
     .nutricional-row {
       display: flex;
       border-bottom: 1px solid #ccc;
+      padding: 0.2mm 0;
     }
 
     .nutricional-row:last-child {
@@ -101,24 +137,22 @@
 
     .nutri-label {
       flex: 1;
-      padding: 0.5mm;
+      padding: 0.2mm 0.5mm;
       font-weight: bold;
     }
 
     .nutri-value {
       flex: 1;
-      padding: 0.5mm;
+      padding: 0.2mm 0.5mm;
       text-align: right;
     }
 
     /* Información de lote y fechas */
     .lote-fechas {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 1mm;
-      font-size: 6pt;
+      font-size: 5pt;
       border: 1px solid #000;
-      padding: 1mm;
+      padding: 0.8mm;
     }
 
     .lote-info, .fecha-info {
@@ -127,37 +161,46 @@
 
     .lote-info {
       border-right: 1px solid #000;
-      padding-right: 1mm;
+      padding-right: 0.8mm;
     }
 
     .fecha-info {
-      padding-left: 1mm;
+      padding-left: 0.8mm;
     }
 
     .info-label {
       font-weight: bold;
+      font-size: 4pt;
     }
 
     /* Conservación y cocción */
     .info-extra {
-      font-size: 5pt;
-      margin-bottom: 1mm;
+      font-size: 4.5pt;
+      margin-top: auto;
     }
 
     .info-extra-row {
-      margin-bottom: 0.3mm;
+      margin-bottom: 0.2mm;
     }
 
     .info-extra-label {
       font-weight: bold;
     }
 
+    /* Pie de página */
+    .footer-section {
+      border-top: 1px solid #000;
+      padding-top: 0.5mm;
+      margin-top: 0.5mm;
+    }
+
     /* Fabricante */
     .fabricante {
-      font-size: 5pt;
-      margin-top: auto;
-      border-top: 1px solid #000;
-      padding-top: 1mm;
+      font-size: 4.5pt;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5mm;
     }
 
     .fabricante-nombre {
@@ -166,90 +209,102 @@
 
     /* Alerta de alérgenos */
     .alerta-alergenos {
-      font-size: 5pt;
+      font-size: 4.5pt;
       font-weight: bold;
       color: #cc0000;
-      margin-top: 0.5mm;
+      margin-bottom: 0.3mm;
       text-align: center;
       border: 1px solid #cc0000;
-      padding: 0.5mm;
+      padding: 0.3mm;
     }
   </style>
 </head>
 <body>
   <div class="label-container">
-    <!-- Header -->
+    <!-- Header: logo + producto en fila -->
     <div class="header">
-      <div class="logo">QUALITY PIZZAFRESH</div>
-      <div class="producto-nombre">{{PRODUCTO_NOMBRE}}</div>
-      <div class="producto-peso">{{PRODUCTO_PESO}}</div>
-    </div>
-
-    <!-- Ingredientes -->
-    <div class="ingredientes">
-      <div class="ingredientes-title">Ingredientes:</div>
-      <div>{{INGREDIENTES}}</div>
-      <div class="alergenos">Contiene: Glúten, Soja, Mostaza* (*contaminación cruzada)</div>
-    </div>
-
-    <!-- Tabla nutricional -->
-    <div class="nutricional">
-      <div class="nutricional-title">INFORMACIÓN NUTRICIONAL (100g)</div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Energía</div>
-        <div class="nutri-value">1160 kJ / 274 kcal</div>
+      <div class="logo-section">
+        <div class="logo">QUALITY PIZZAFRESH</div>
       </div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Grasas</div>
-        <div class="nutri-value">4,3g (saturadas: 1,2g)</div>
-      </div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Hidratos</div>
-        <div class="nutri-value">50g (azúcares: 0,5g)</div>
-      </div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Proteínas</div>
-        <div class="nutri-value">8,6g</div>
-      </div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Sal</div>
-        <div class="nutri-value">1,5g</div>
+      <div class="producto-section">
+        <div class="producto-nombre">{{PRODUCTO_NOMBRE}}</div>
+        <div class="producto-peso">{{PRODUCTO_PESO}}</div>
       </div>
     </div>
 
-    <!-- Lote y fechas -->
-    <div class="lote-fechas">
-      <div class="lote-info">
-        <div class="info-label">Lote:</div>
-        <div>{{LOTE}}</div>
+    <!-- Cuerpo: dos columnas -->
+    <div class="label-body">
+      <div class="col-left">
+        <!-- Ingredientes -->
+        <div class="ingredientes">
+          <div class="ingredientes-title">Ingredientes:</div>
+          <div>{{INGREDIENTES}}</div>
+          <div class="alergenos">Contiene: Glúten, Soja, Mostaza* (*contaminación cruzada)</div>
+        </div>
+        <!-- Conservación y cocción -->
+        <div class="info-extra">
+          <div class="info-extra-row">
+            <span class="info-extra-label">Conservación:</span> 0°C a 4°C | Congelación: 3 meses
+          </div>
+          <div class="info-extra-row">
+            <span class="info-extra-label">Cocción:</span> Horno 200-300°C
+          </div>
+        </div>
       </div>
-      <div class="fecha-info">
-        <div class="info-label">Elab:</div>
-        <div>{{FECHA_ELABORACION}}</div>
-        <div class="info-label" style="margin-top: 0.5mm;">Consumir pref.:</div>
-        <div>{{FECHA_CONSUMO}}</div>
+
+      <div class="col-right">
+        <!-- Tabla nutricional -->
+        <div class="nutricional">
+          <div class="nutricional-title">INFORMACIÓN NUTRICIONAL (100g)</div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Energía</div>
+            <div class="nutri-value">1160 kJ / 274 kcal</div>
+          </div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Grasas</div>
+            <div class="nutri-value">4,3g (saturadas: 1,2g)</div>
+          </div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Hidratos</div>
+            <div class="nutri-value">50g (azúcares: 0,5g)</div>
+          </div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Proteínas</div>
+            <div class="nutri-value">8,6g</div>
+          </div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Sal</div>
+            <div class="nutri-value">1,5g</div>
+          </div>
+        </div>
+
+        <!-- Lote y fechas -->
+        <div class="lote-fechas">
+          <div class="lote-info">
+            <div class="info-label">Lote:</div>
+            <div>{{LOTE}}</div>
+          </div>
+          <div class="fecha-info">
+            <div class="info-label">Elab:</div>
+            <div>{{FECHA_ELABORACION}}</div>
+            <div class="info-label" style="margin-top: 0.5mm;">Consumir pref.:</div>
+            <div>{{FECHA_CONSUMO}}</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Información extra -->
-    <div class="info-extra">
-      <div class="info-extra-row">
-        <span class="info-extra-label">Conservación:</span> 0°C a 4°C | Congelación: 3 meses
+    <!-- Pie de página -->
+    <div class="footer-section">
+      <!-- Alerta de alérgenos -->
+      <div class="alerta-alergenos">
+        ⚠️ PUEDE CONTENER SOJA Y MOSTAZA POR CONTAMINACIÓN CRUZADA
       </div>
-      <div class="info-extra-row">
-        <span class="info-extra-label">Cocción:</span> Horno 200-300°C
+      <!-- Fabricante -->
+      <div class="fabricante">
+        <div class="fabricante-nombre">Fabricante: Hermanos Viudes S.L.</div>
+        <div>RGSEAA: 20.044822/A</div>
       </div>
-    </div>
-
-    <!-- Alerta de alérgenos -->
-    <div class="alerta-alergenos">
-      ⚠️ PUEDE CONTENER SOJA Y MOSTAZA POR CONTAMINACIÓN CRUZADA
-    </div>
-
-    <!-- Fabricante -->
-    <div class="fabricante">
-      <div class="fabricante-nombre">Fabricante: Hermanos Viudes S.L.</div>
-      <div>RGSEAA: 20.044822/A</div>
     </div>
   </div>
 </body>
