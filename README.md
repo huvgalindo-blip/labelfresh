@@ -2,6 +2,11 @@
 
 Aplicación web para generar etiquetas alimentarias en formato PDF para impresión térmica (68mm x 80mm).
 
+## 🧭 Flujo soportado actualmente
+
+- **App canónica (recomendada):** `docs/index.html` (GitHub Pages).
+- **App Node/Express (`public/` + `server.js`):** se mantiene para uso local y generación de PDF con Puppeteer.
+
 ## 📋 Características
 
 - ✅ Generación de PDFs profesionales con Puppeteer
@@ -72,6 +77,8 @@ Luego abre: `http://localhost:3000`
 
 ```
 labelfresh/
+├── docs/
+│   └── index.html          # App principal para GitHub Pages
 ├── server.js              # Servidor Express
 ├── generatePDF.js         # Módulo de generación PDF con Puppeteer
 ├── template.html          # Plantilla base de la etiqueta

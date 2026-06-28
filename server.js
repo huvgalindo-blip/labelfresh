@@ -1,6 +1,7 @@
 const express = require('express');
 const generateEtiqueta = require('./generatePDF');
 const path = require('path');
+const fs = require('fs');
 const cors = require('cors');
 
 const app = express();
@@ -10,6 +11,14 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.static('public'));
+
+const templatePath = path.join(__dirname, 'template.html');
+const templateHtml = fs.readFileSync(templatePath, 'utf8');
+
+// Ruta para la plantilla usada en vista previa del frontend
+app.get('/template.html', (req, res) => {
+  res.type('html').send(templateHtml);
+});
 
 // Ruta para servir archivos estáticos de outputs
 app.use('/outputs', express.static(path.join(__dirname, 'outputs')));
