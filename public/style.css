@@ -49,8 +49,8 @@ body {
 
 /* Iframe de vista previa */
 .preview-iframe {
-  width: 68mm;
-  height: 80mm;
+  width: 80mm;
+  height: 68mm;
   border: none;
   display: block;
   background: white;
@@ -59,12 +59,12 @@ body {
 
 /* Etiqueta en vista previa */
 .label-preview {
-  width: 68mm;
-  min-width: 68mm;
-  max-width: 68mm;
-  height: 80mm;
-  min-height: 80mm;
-  max-height: 80mm;
+  width: 80mm;
+  min-width: 80mm;
+  max-width: 80mm;
+  height: 68mm;
+  min-height: 68mm;
+  max-height: 68mm;
   background: white;
   border: 1px solid #000;
   font-family: Arial, sans-serif;
@@ -173,12 +173,12 @@ body {
 
   .preview-iframe,
   .label-preview {
-    width: 68mm;
-    min-width: 68mm;
-    max-width: 68mm;
-    height: 80mm;
-    min-height: 80mm;
-    max-height: 80mm;
+    width: 80mm;
+    min-width: 80mm;
+    max-width: 80mm;
+    height: 68mm;
+    min-height: 68mm;
+    max-height: 68mm;
   }
 }
 
