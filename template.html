@@ -28,71 +28,116 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      gap: 0.8mm;
     }
 
-    /* Header con logo y producto */
-    .header {
-      text-align: center;
+    .label-header {
+      display: grid;
+      grid-template-columns: 19mm 1fr;
+      align-items: center;
+      gap: 1mm;
       border-bottom: 1px solid #000;
-      padding-bottom: 1mm;
-      margin-bottom: 1mm;
+      padding-bottom: 0.8mm;
+    }
+
+    .logo-mark {
+      border: 1px solid #000;
+      font-size: 5.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 1.2mm 0.8mm;
+      line-height: 1.1;
+    }
+
+    .header-product {
+      min-width: 0;
+      text-align: left;
     }
 
     .logo {
-      font-size: 8pt;
+      font-size: 6pt;
       font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.3px;
+      line-height: 1.1;
     }
 
     .producto-nombre {
-      font-size: 9pt;
+      font-size: 8pt;
       font-weight: bold;
-      margin-top: 1mm;
+      margin-top: 0.4mm;
       text-transform: uppercase;
+      line-height: 1.1;
     }
 
     .producto-peso {
-      font-size: 7pt;
-      font-weight: normal;
+      font-size: 5.5pt;
+      font-weight: bold;
+      margin-top: 0.2mm;
     }
 
-    /* Ingredientes */
+    .content-main {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1mm;
+    }
+
+    .left-column,
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      gap: 0.6mm;
+    }
+
     .ingredientes {
-      margin-bottom: 1mm;
-      font-size: 6pt;
+      font-size: 5pt;
+      line-height: 1.2;
+      border: 1px solid #000;
+      padding: 0.6mm;
+      min-height: 0;
     }
 
     .ingredientes-title {
       font-weight: bold;
       text-decoration: underline;
+      margin-bottom: 0.3mm;
+    }
+
+    .ingredientes-text {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 8;
+      overflow: hidden;
     }
 
     .alergenos {
-      font-size: 6pt;
+      font-size: 4.7pt;
       font-weight: bold;
-      color: #333;
-      margin-top: 0.5mm;
+      margin-top: 0.4mm;
+      line-height: 1.15;
     }
 
-    /* Tabla nutricional */
     .nutricional {
       border: 1px solid #000;
-      margin-bottom: 1mm;
-      font-size: 5pt;
+      font-size: 4.3pt;
     }
 
     .nutricional-title {
       background: #f0f0f0;
       font-weight: bold;
       text-align: center;
-      padding: 0.5mm;
+      padding: 0.4mm;
       border-bottom: 1px solid #000;
     }
 
     .nutricional-row {
       display: flex;
       border-bottom: 1px solid #ccc;
+      padding: 0.2mm 0;
     }
 
     .nutricional-row:last-child {
@@ -101,149 +146,146 @@
 
     .nutri-label {
       flex: 1;
-      padding: 0.5mm;
+      padding: 0.25mm 0.4mm;
       font-weight: bold;
     }
 
     .nutri-value {
       flex: 1;
-      padding: 0.5mm;
+      padding: 0.25mm 0.4mm;
       text-align: right;
     }
 
-    /* Información de lote y fechas */
     .lote-fechas {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1mm;
-      font-size: 6pt;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      font-size: 4.8pt;
       border: 1px solid #000;
-      padding: 1mm;
-    }
-
-    .lote-info, .fecha-info {
-      flex: 1;
+      padding: 0.6mm;
+      gap: 0.6mm;
     }
 
     .lote-info {
       border-right: 1px solid #000;
-      padding-right: 1mm;
+      padding-right: 0.5mm;
     }
 
     .fecha-info {
-      padding-left: 1mm;
+      padding-left: 0.1mm;
     }
 
     .info-label {
       font-weight: bold;
+      font-size: 4.4pt;
+      line-height: 1.1;
     }
 
-    /* Conservación y cocción */
     .info-extra {
-      font-size: 5pt;
-      margin-bottom: 1mm;
+      font-size: 4.4pt;
+      border: 1px solid #000;
+      padding: 0.5mm;
+      line-height: 1.15;
     }
 
-    .info-extra-row {
-      margin-bottom: 0.3mm;
+    .info-extra-row + .info-extra-row {
+      margin-top: 0.3mm;
     }
 
     .info-extra-label {
       font-weight: bold;
     }
 
-    /* Fabricante */
+    .alerta-alergenos {
+      font-size: 4.3pt;
+      font-weight: bold;
+      color: #cc0000;
+      text-align: center;
+      border: 1px solid #cc0000;
+      padding: 0.35mm;
+      line-height: 1.1;
+    }
+
     .fabricante {
-      font-size: 5pt;
-      margin-top: auto;
+      flex-shrink: 0;
+      font-size: 4.6pt;
       border-top: 1px solid #000;
-      padding-top: 1mm;
+      padding-top: 0.5mm;
+      line-height: 1.15;
     }
 
     .fabricante-nombre {
       font-weight: bold;
-    }
-
-    /* Alerta de alérgenos */
-    .alerta-alergenos {
-      font-size: 5pt;
-      font-weight: bold;
-      color: #cc0000;
-      margin-top: 0.5mm;
-      text-align: center;
-      border: 1px solid #cc0000;
-      padding: 0.5mm;
     }
   </style>
 </head>
 <body>
   <div class="label-container">
     <!-- Header -->
-    <div class="header">
-      <div class="logo">QUALITY PIZZAFRESH</div>
-      <div class="producto-nombre">{{PRODUCTO_NOMBRE}}</div>
-      <div class="producto-peso">{{PRODUCTO_PESO}}</div>
-    </div>
-
-    <!-- Ingredientes -->
-    <div class="ingredientes">
-      <div class="ingredientes-title">Ingredientes:</div>
-      <div>{{INGREDIENTES}}</div>
-      <div class="alergenos">Contiene: Glúten, Soja, Mostaza* (*contaminación cruzada)</div>
-    </div>
-
-    <!-- Tabla nutricional -->
-    <div class="nutricional">
-      <div class="nutricional-title">INFORMACIÓN NUTRICIONAL (100g)</div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Energía</div>
-        <div class="nutri-value">1160 kJ / 274 kcal</div>
-      </div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Grasas</div>
-        <div class="nutri-value">4,3g (saturadas: 1,2g)</div>
-      </div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Hidratos</div>
-        <div class="nutri-value">50g (azúcares: 0,5g)</div>
-      </div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Proteínas</div>
-        <div class="nutri-value">8,6g</div>
-      </div>
-      <div class="nutricional-row">
-        <div class="nutri-label">Sal</div>
-        <div class="nutri-value">1,5g</div>
+    <div class="label-header">
+      <div class="logo-mark">QUALITY<br>PIZZAFRESH</div>
+      <div class="header-product">
+        <div class="logo">QUALITY PIZZAFRESH</div>
+        <div class="producto-nombre">{{PRODUCTO_NOMBRE}}</div>
+        <div class="producto-peso">{{PRODUCTO_PESO}}</div>
       </div>
     </div>
 
-    <!-- Lote y fechas -->
-    <div class="lote-fechas">
-      <div class="lote-info">
-        <div class="info-label">Lote:</div>
-        <div>{{LOTE}}</div>
+    <div class="content-main">
+      <div class="left-column">
+        <div class="ingredientes">
+          <div class="ingredientes-title">Ingredientes:</div>
+          <div class="ingredientes-text">{{INGREDIENTES}}</div>
+          <div class="alergenos">Contiene: Glúten, Soja, Mostaza* (*contaminación cruzada)</div>
+        </div>
+        <div class="info-extra">
+          <div class="info-extra-row">
+            <span class="info-extra-label">Conservación:</span> 0°C a 4°C | Congelación: 3 meses
+          </div>
+          <div class="info-extra-row">
+            <span class="info-extra-label">Cocción:</span> Horno 200-300°C
+          </div>
+        </div>
+        <div class="alerta-alergenos">
+          ⚠️ PUEDE CONTENER SOJA Y MOSTAZA POR CONTAMINACIÓN CRUZADA
+        </div>
       </div>
-      <div class="fecha-info">
-        <div class="info-label">Elab:</div>
-        <div>{{FECHA_ELABORACION}}</div>
-        <div class="info-label" style="margin-top: 0.5mm;">Consumir pref.:</div>
-        <div>{{FECHA_CONSUMO}}</div>
+      <div class="right-column">
+        <div class="nutricional">
+          <div class="nutricional-title">INFORMACIÓN NUTRICIONAL (100g)</div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Energía</div>
+            <div class="nutri-value">1160 kJ / 274 kcal</div>
+          </div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Grasas</div>
+            <div class="nutri-value">4,3g (saturadas: 1,2g)</div>
+          </div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Hidratos</div>
+            <div class="nutri-value">50g (azúcares: 0,5g)</div>
+          </div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Proteínas</div>
+            <div class="nutri-value">8,6g</div>
+          </div>
+          <div class="nutricional-row">
+            <div class="nutri-label">Sal</div>
+            <div class="nutri-value">1,5g</div>
+          </div>
+        </div>
+        <div class="lote-fechas">
+          <div class="lote-info">
+            <div class="info-label">Lote:</div>
+            <div>{{LOTE}}</div>
+          </div>
+          <div class="fecha-info">
+            <div class="info-label">Elab:</div>
+            <div>{{FECHA_ELABORACION}}</div>
+            <div class="info-label" style="margin-top: 0.4mm;">Consumir pref.:</div>
+            <div>{{FECHA_CONSUMO}}</div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <!-- Información extra -->
-    <div class="info-extra">
-      <div class="info-extra-row">
-        <span class="info-extra-label">Conservación:</span> 0°C a 4°C | Congelación: 3 meses
-      </div>
-      <div class="info-extra-row">
-        <span class="info-extra-label">Cocción:</span> Horno 200-300°C
-      </div>
-    </div>
-
-    <!-- Alerta de alérgenos -->
-    <div class="alerta-alergenos">
-      ⚠️ PUEDE CONTENER SOJA Y MOSTAZA POR CONTAMINACIÓN CRUZADA
     </div>
 
     <!-- Fabricante -->
