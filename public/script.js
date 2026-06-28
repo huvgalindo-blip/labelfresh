@@ -237,9 +237,18 @@ async function generatePreviewHTML(data) {
   // Leer plantilla
   const response = await fetch('/template.html');
   let html = await response.text();
+
+  const templateData = {
+    PRODUCTO_NOMBRE: data.producto,
+    PRODUCTO_PESO: data.peso,
+    INGREDIENTES: data.ingredientes,
+    LOTE: data.lote,
+    FECHA_ELABORACION: data.fechaElab,
+    FECHA_CONSUMO: data.fechaConsumo
+  };
   
   // Reemplazar marcadores
-  for (const [key, value] of Object.entries(data)) {
+  for (const [key, value] of Object.entries(templateData)) {
     const placeholder = `{{${key}}}`;
     html = html.replace(new RegExp(placeholder, 'g'), value || '');
   }

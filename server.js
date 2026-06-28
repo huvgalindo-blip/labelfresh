@@ -11,6 +11,11 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 app.use(express.static('public'));
 
+// Ruta para la plantilla usada en vista previa del frontend
+app.get('/template.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'template.html'));
+});
+
 // Ruta para servir archivos estáticos de outputs
 app.use('/outputs', express.static(path.join(__dirname, 'outputs')));
 

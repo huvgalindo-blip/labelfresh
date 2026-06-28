@@ -809,18 +809,34 @@
       `;
     }
 
-    function generatePreview() {
+    function createLabelElement() {
       const labelHTML = generateLabelHTML();
       const parser = new DOMParser();
       const doc = parser.parseFromString(labelHTML, 'text/html');
-      const bodyContent = doc.body.innerHTML;
-      previewContainer.innerHTML = `<div class="label-preview">${bodyContent}</div>`;
+      const element = document.createElement('div');
+
+      doc.head.querySelectorAll('style').forEach(styleTag => {
+        const styleClone = document.createElement('style');
+        styleClone.textContent = styleTag.textContent;
+        element.appendChild(styleClone);
+      });
+
+      const labelPreview = document.createElement('div');
+      labelPreview.className = 'label-preview';
+      labelPreview.innerHTML = doc.body.innerHTML;
+      element.appendChild(labelPreview);
+
+      return element;
+    }
+
+    function generatePreview() {
+      previewContainer.innerHTML = '';
+      previewContainer.appendChild(createLabelElement());
     }
 
     function downloadPDF() {
       const data = getFormData();
-      const element = document.createElement('div');
-      element.innerHTML = generateLabelHTML().replace(/<!DOCTYPE[^>]*>/g, '').replace(/<html[^>]*>/g, '').replace(/<\/html>/g, '').replace(/<head[^>]*>.*<\/head>/s, '');
+      const element = createLabelElement();
       
       const options = {
         margin: 0,
